@@ -11,21 +11,6 @@ import StarshipsData from '../data/Starshipsdata';
 // Using the SHOW_WOLRD case as an example, create (below SHOW_WORLD) one
 // for SHOW_DIRECTOR and one for SHOW_MODEL.
 
-function stateExample(state = '', action) {
-  switch (action.type) {
-    case ActionTypes.SHOW_WORLD:
-      return "Just triggered SHOW_WORLD actionType and set state!"
-
-    default:
-      return state;
-  }
-}
-
-// COMPLETE LINE 44
-{/* ONCE YOU HAVE REFACTORED THE FILMS AND STARSHIPS COMPONENTS,
-  AND ADDED THEIR APPROPIATE ACTIONS, ACTION TYPES, AND REDUCERS, UNCOMMENT THIS
-  CODE BLOCK AND DELETE THIS COMMENT.
-
 function details(state = "", action) {
   switch (action.type) {
     case ActionTypes.DETAILS:
@@ -36,11 +21,23 @@ function details(state = "", action) {
       return state;
   }
 }
-*/}
 
-// Don't forget to include all reducers.
-// Add data for 'films' and 'starships', use 'people' object (combineReducers) as a guide.
 
-const rootReducer = combineReducers({people: PeopleData});
+function stateExample(state = '', action) {
+  switch (action.type) {
+    case ActionTypes.SHOW_WORLD:
+      return "Just triggered SHOW_WORLD actionType and set state!"
+    case ActionTypes.SHOW_DIRECTOR:
+      return "Just triggered SHOW_DIRECTOR actionType and set state!"
+
+    case ActionTypes.SHOW_MODEL:
+      return "Just triggered SHOW_MODEL actionType and set state!"
+
+    default:
+      return state;
+  }
+}
+
+const rootReducer = combineReducers({people: PeopleData, films: FilmsData, starships: StarshipsData, stateExample: stateExample, details: details});
 
 export default rootReducer;
