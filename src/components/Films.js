@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import filmsdata from '../data/Filmsdata';
 
-class List extends Component {
+class FilmsList extends Component {
   render() {
+    let filmDirector = this.props.filmDirector;
     let data = this.props.films;
     let List = data.map((films) => {
       let url = films.url;
@@ -28,7 +28,7 @@ class List extends Component {
       return (
         <div
           key={films.episode_id}
-          className="col-lg-10 col-lg-offset-1 card">
+          className="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-11 card">
           <div className="col-lg-6">
             <div className="profile">
               <i className="fa fa-film" aria-hidden="true">
@@ -47,8 +47,11 @@ class List extends Component {
                   {films.opening_crawl}
                 </dd>
                 <dt>Director</dt>
-                <dd>
-                  {films.director}
+                <dd> 
+                  /*>>>>>>>Call action function, passing in the desired data<<<<<<<*/
+                  <button
+                    className="btn btn-default"
+                    onClick={()=> filmDirector(films.director)}>Action</button>
                 </dd>
                 <dt>Producer</dt>
                 <dd>
@@ -88,7 +91,7 @@ class List extends Component {
     })
     return (
       <div className="row">
-        <div className="col-lg-10 col-lg-offset-1">
+        <div className="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-11">
           <h1 className="headings">Films</h1>
           <hr/>
         </div>
@@ -98,21 +101,5 @@ class List extends Component {
   }
 }
 
-class Films extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      'films': filmsdata.data.results
-    }
-  }
 
-  render() {
-    return (
-      <div className="app-body offset col-lg-10 col-lg-offset-1">
-        <List films={this.state.films}/>
-      </div>
-    );
-  }
-}
-
-export default Films;
+export default FilmsList;
