@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 class PeopleList extends Component {
   render() {
+    console.log('REDUCER: received state (data and action) from reducer via props. See index.js in "reducers"', this.props)
     let homeWorld = this.props.homeworld;
     let data = this.props.people;
     let List = data.map((people) => {
@@ -23,7 +24,7 @@ class PeopleList extends Component {
       return (
         <div
           key={people.name}
-          className="col-lg-10 col-lg-offset-1 card">
+          className="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-11 col-md-10 col-md-offset-1 col-xs-11 card">
           <div className="col-lg-4">
             <div className="profile">
               <i className="fa fa-user" aria-hidden="true">
@@ -72,7 +73,7 @@ class PeopleList extends Component {
                   {/*>>>>>>>Here we call our action function, passing in the desired data<<<<<<<*/}
                   <button
                     className="btn btn-default"
-                    onClick={() => homeWorld(people.homeworld)}>View</button>
+                    onClick={() => homeWorld(people.homeworld)}>Action</button>
                 </dd>
               </dl>
             </div>
@@ -100,7 +101,7 @@ class PeopleList extends Component {
     })
     return (
       <div className="row">
-        <div className="col-lg-10 col-lg-offset-1">
+        <div className="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-11 col-md-12">        
           <h1 className="headings">People</h1>
           <hr/>
         </div>
