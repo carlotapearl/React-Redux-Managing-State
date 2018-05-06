@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import starshipsdata from '../data/Starshipsdata';
 
-class List extends Component {
+
+class StarshipsList extends Component {
   render() {
+    let starshipModel = this.props.starshipsModel;
     let data = this.props.starships;
     let List = data.map((starships) => {
       let films = starships.films.map((films) => {
@@ -15,7 +16,7 @@ class List extends Component {
       return (
         <div
           key={starships.name}
-          className="col-lg-10 col-lg-offset-1 card">
+          className="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-11 card">        
           <div className="col-lg-6">
             <div className="profile">
               <i
@@ -38,7 +39,9 @@ class List extends Component {
                 </dd>
                 <dt>Model</dt>
                 <dd>
-                  {starships.model}
+                  <button
+                    className="btn btn-default"
+                    onClick={() => starshipModel(starships.model)}>Action</button>                  
                 </dd>
                 <dt>Class</dt>
                 <dd>
@@ -69,7 +72,7 @@ class List extends Component {
     })
     return (
       <div className="row">
-        <div className="col-lg-10 col-lg-offset-1">
+        <div className="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-11">
           <h1 className="headings">Starships</h1>
           <hr/>
         </div>
@@ -79,21 +82,4 @@ class List extends Component {
   }
 }
 
-class Starships extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      'starships': starshipsdata.data.results
-    }
-  }
-
-  render() {
-    return (
-      <div className="app-body offset col-lg-10 col-lg-offset-1">
-        <List starships={this.state.starships}/>
-      </div>
-    );
-  }
-}
-
-export default Starships;
+export default StarshipsList;
