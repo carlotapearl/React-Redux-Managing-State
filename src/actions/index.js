@@ -8,17 +8,6 @@ export const homeWorld = world => {
   };
 };
 
-
-
-{/*
-Add a filmDirector and starshipModel action.
-The alerts should display the following; for 'filmDirector' show the director's name, for starshipModel show starship's model.
-  */
-}
-
-{/* ONCE YOU HAVE REFACTORED THE FILMS AND STARSHIPS COMPONENTS,
-  AND ADDED THEIR APPROPIATE ACTIONS, ACTION TYPES, AND REDUCERS, UNCOMMENT THIS
-  CODE BLOCK AND DELETE THIS COMMENT.
 export const setDetails = data => {
   console.log('ACTIONS: setDetails(). received data and passing the following payload:', data)
   return {
@@ -26,4 +15,19 @@ export const setDetails = data => {
     payload: {data}
   };
 };
-*/}
+/*Add a filmDirector and starshipModel action.
+The alerts should display the following; for 'filmDirector' show the director's name, for starshipModel show starship's model.
+  */
+
+export const filmDirector = director => {
+  return {
+    type: ActionTypes.SHOW_DIRECTOR,
+    payload: alert("Director: " + director)
+  };
+};
+export const starshipModel = model => {
+  return {
+    type: ActionTypes.SHOW_MODEL,
+    payload: alert("Model: " + model)
+  };
+};
