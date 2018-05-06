@@ -70,11 +70,12 @@ export default class BaseLayout extends Component {
           PASS IN CHILDREN
           */}
           {this.props.children}
-          <footer className="col-lg-12">
-            <span>
-              SWAPI EXPLORER
-            </span>
-          </footer>
+          <footer className="row">
+            <div className="col-lg-12 col-md-12 col-xs-12">
+              <span>
+                SWAPI EXPLORER
+              </span>
+           </footer>
         </div>
     );
   }
